@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
+import { FireBaseAuthModule } from './fire-base-auth/fire-base-auth.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MaterialModule } from './material/material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FireBaseAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
