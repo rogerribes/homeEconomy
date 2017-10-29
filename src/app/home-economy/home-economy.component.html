@@ -11,7 +11,10 @@
       <mat-icon>{{menuItem.icon}}</mat-icon>
       <span>{{menuItem.title}}</span>
     </button>
-
+    <button mat-menu-item (click)="signout()">
+      <mat-icon>power_settings_new</mat-icon>
+      <span>Sign Out</span>
+    </button>
   </mat-menu>
 </mat-toolbar>
 <div class="flex-container">

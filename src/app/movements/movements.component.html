@@ -1,3 +1,63 @@
-<p>
-  movements works!
-</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <!--<div mat-card-avatar class="example-header-image"></div>-->
+    <mat-card-title>Last Movements:</mat-card-title>
+    <mat-card-subtitle>List of Registered Movements</mat-card-subtitle>
+  </mat-card-header>
+  <!--<img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+  <mat-card-content>
+      <mat-table #table [dataSource]="dataSource" class="mat-elevation-z9 table-width">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+          <mat-cell *matCellDef="let element" >
+            <!--<p>{{element.position}}</p>-->
+            <p>Fecha</p>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!--<p>{{element.name}}</p>-->
+            <p>Categoria</p>
+            <p>SubCategoria</p>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!--<p>{{element.weight}}</p>-->
+            <p>Centro</p>
+            <p>Descripcion</p>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!--<p>{{element.symbol}} </p>-->
+            <p>persona </p>
+            <p>Importe </p>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">SAVE and NEW</button>
+    <button mat-raised-button color="accent">SAVE and Exit</button>
+    <button mat-button color="warn">Exit without SAVE</button>
+  </mat-card-actions>
+</mat-card>
+

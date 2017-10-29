@@ -6,8 +6,8 @@ import { ExpenseEntryComponent } from '../expense-entry/expense-entry.component'
 import { CalculateComponent } from '../calculate/calculate.component';
 import { MovementsComponent } from '../movements/movements.component';
 import { EstadisticsComponent } from '../estadistics/estadistics.component';
-import {CanRegisterGuard} from "../fire-base-auth/can-register.guard";
-import {UserConnectedGuard} from "../fire-base-auth/user-connected.guard";
+import {CanRegisterGuard} from '../fire-base-auth/can-register.guard';
+import {UserConnectedGuard} from '../fire-base-auth/user-connected.guard';
 
 
 

@@ -7,32 +7,42 @@
   <!--<img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
   <mat-card-content>
     <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food">
+
+      <mat-form-field class="example-mid-width">
+        <input matInput [min]="minDate"
+               [max]="maxDate"
+               [matDatepicker]="picker" placeholder="Choose a date" readonly
+               (focus)="picker.open()" (click)="picker.open()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="example-mid-width" style="float: right">
+        <input matInput placeholder="Categoria">
       </mat-form-field>
       <mat-form-field class="example-mid-width">
-        <input matInput placeholder="Favorite food">
+        <input matInput placeholder="Concepto / Empresa">
+        <mat-icon matSuffix>store_mall_directory</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="example-mid-width" style="float: right">
+        <input matInput placeholder="Sub Categoria">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descripción">
       </mat-form-field>
       <mat-form-field class="example-mid-width">
-        <input matInput placeholder="Favorite food">
+        <input matInput placeholder="Importe">
+        <mat-icon matSuffix>euro_symbol</mat-icon>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food">
+      <mat-form-field class="example-mid-width" style="float: right">
+        <input matInput placeholder="Persona">
+        <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>SAVE</button>
-    <button mat-button>CANCEL</button>
+    <button mat-raised-button color="primary">SAVE and NEW</button>
+    <button mat-raised-button color="accent">SAVE and Exit</button>
+    <button mat-button color="warn">Exit without SAVE</button>
   </mat-card-actions>
 </mat-card>
 
-<div class="flexbox-parent">
-  <div layout="row" layout-align="center center"  style="min-height: 500px">
-    <div flex="15">First line</div>
-    <div flex="15">Second line</div>
-  </div>
-</div>
