@@ -12,6 +12,8 @@ import { MovementsComponent } from './movements/movements.component';
 import { EstadisticsComponent } from './estadistics/estadistics.component';
 import { CalculateComponent } from './calculate/calculate.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import {AuthService} from './fire-base-auth/auth.service';
+import {UserConnectedGuard} from './fire-base-auth/user-connected.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FireBaseAuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

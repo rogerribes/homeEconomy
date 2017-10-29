@@ -5,24 +5,17 @@
     Home Economy
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="navigateTo('/HomeEconomy/ExpenseEntry')">
-      <mat-icon>dialpad</mat-icon>
-      <span>Nuevo Registro</span>
+
+
+    <button mat-menu-item (click)="navigateTo(menuItem.path)" *ngFor="let menuItem of menuItems">
+      <mat-icon>{{menuItem.icon}}</mat-icon>
+      <span>{{menuItem.title}}</span>
     </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Calcular Importe</span>
-    </button>
-    <button mat-menu-item (click)="navigateTo('/HomeEconomy/Movements')">
-      <mat-icon>notifications_off</mat-icon>
-      <span>Ver Movimientos</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Estadisticas</span>
-    </button>
+
   </mat-menu>
 </mat-toolbar>
+<div class="flex-container">
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
 
