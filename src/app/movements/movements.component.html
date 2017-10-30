@@ -12,41 +12,41 @@
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
+        <ng-container matColumnDef="Fecha">
           <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
           <mat-cell *matCellDef="let element" >
             <!--<p>{{element.position}}</p>-->
-            <p>Fecha</p>
+            <p>{{element.date}}</p>
           </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <ng-container matColumnDef="Categoria">
+          <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <!--<p>{{element.name}}</p>-->
-            <p>Categoria</p>
-            <p>SubCategoria</p>
+            <p>{{element.category}}</p>
+            <p>{{element.subCategory}}</p>
           </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+        <ng-container matColumnDef="Concepto">
+          <mat-header-cell *matHeaderCellDef> Concepto </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <!--<p>{{element.weight}}</p>-->
-            <p>Centro</p>
-            <p>Descripcion</p>
+            <p>{{element.commerce}}</p>
+            <p>{{element.description}}</p>
           </mat-cell>
         </ng-container>
 
         <!-- Color Column -->
-        <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <ng-container matColumnDef="Importe">
+          <mat-header-cell *matHeaderCellDef> Importe </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <!--<p>{{element.symbol}} </p>-->
-            <p>persona </p>
-            <p>Importe </p>
+            <p>{{element.property}} </p>
+            <p>{{element.value}} </p>
           </mat-cell>
         </ng-container>
 
