@@ -12,10 +12,18 @@
 .mat-table {
     overflow: auto;
     max-height: 600px;
-    min-width: 800px;
+    /*min-width: 800px;*/
     max-width: 900px;
 }
 .table-width {
     max-width: 900px;
     width: 100%;
+}
+.my-mat-cell,
+.my-mat-header-cell {
+    flex: 0 0 50%;
+    text-align: center;
+}
+.left-spacing {
+    padding-left: 20px;
 }

@@ -10,6 +10,8 @@ import {MatDatepickerModule} from '@angular/material';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
+import {MatStepperModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import {MatSelectModule} from '@angular/material';
     MatDatepickerModule,
     MatMomentDateModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatStepperModule
   ],
   declarations: [],
   exports: [
@@ -37,7 +41,9 @@ import {MatSelectModule} from '@angular/material';
     MatDatepickerModule,
     MatMomentDateModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatStepperModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}

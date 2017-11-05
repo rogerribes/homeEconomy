@@ -5,44 +5,52 @@
     <mat-card-subtitle>Nueva entrada de Gastos Comunes</mat-card-subtitle>
   </mat-card-header>
   <!--<img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-  <mat-card-content>
-    <form class="example-form">
 
+  <form class="example-form" [formGroup]="expenseForm" (ngSubmit)="saveExpense()" novalidate>
+    <mat-card-content>
       <mat-form-field class="example-mid-width">
-        <input matInput [min]="minDate"
-               [max]="maxDate"
-               [matDatepicker]="picker" placeholder="Choose a date" readonly
+        <input matInput placeholder="Choose a date" readonly
+               [min]="datePickerOptions.minDate"
+               [max]="datePickerOptions.maxDate"
+               formControlName="date"
+               [matDatepicker]="picker"
                (focus)="picker.open()" (click)="picker.open()">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field class="example-mid-width" style="float: right">
-        <input matInput placeholder="Categoria">
+        <input matInput placeholder="Categoria"
+               formControlName="category">
       </mat-form-field>
       <mat-form-field class="example-mid-width">
-        <input matInput placeholder="Concepto / Empresa">
+        <input matInput placeholder="Concepto / Empresa"
+               formControlName="commerce">
         <mat-icon matSuffix>store_mall_directory</mat-icon>
       </mat-form-field>
       <mat-form-field class="example-mid-width" style="float: right">
-        <input matInput placeholder="Sub Categoria">
+        <input matInput placeholder="Sub Categoria"
+               formControlName="subCategory">
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Descripción">
+        <input matInput placeholder="Descripción"
+               formControlName="description">
       </mat-form-field>
       <mat-form-field class="example-mid-width">
-        <input matInput placeholder="Importe">
+        <input matInput placeholder="Importe" type="number"
+               formControlName="value">
         <mat-icon matSuffix>euro_symbol</mat-icon>
       </mat-form-field>
       <mat-form-field class="example-mid-width" style="float: right">
-        <input matInput placeholder="Persona">
+        <input matInput placeholder="Persona"
+               formControlName="owner">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">SAVE and NEW</button>
-    <button mat-raised-button color="accent">SAVE and Exit</button>
-    <button mat-button color="warn">Exit without SAVE</button>
-  </mat-card-actions>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="expenseForm.invalid">SAVE and NEW</button>
+      <a mat-raised-button color="accent" [disabled]="expenseForm.invalid">SAVE and Exit</a>
+      <a mat-button color="warn">Exit without SAVE</a>
+    </mat-card-actions>
+  </form>
 </mat-card>
-
+<code>Form Invalid: {{expenseForm.invalid}}</code>

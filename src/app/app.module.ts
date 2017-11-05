@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { FireBaseAuthModule } from './fire-base-auth/fire-base-auth.module';
@@ -13,6 +13,7 @@ import { CalculateComponent } from './calculate/calculate.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import {AuthService} from './fire-base-auth/auth.service';
 import { FireBaseDatabaseService } from './fire-base-auth/fire-base-database.service';
+import { ExpensesService } from './fire-base-auth/expenses.service';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,13 @@ import { FireBaseDatabaseService } from './fire-base-auth/fire-base-database.ser
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MaterialModule,
     FireBaseAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [AuthService, FireBaseDatabaseService],
+  providers: [AuthService, FireBaseDatabaseService, ExpensesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

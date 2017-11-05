@@ -1,29 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FireBaseDatabaseService } from '../fire-base-auth/fire-base-database.service';
+import { ExpenseEntry } from '../common/model/expense-entry.model';
+import { ExpensesService } from '../fire-base-auth/expenses.service';
 
 
 const CURRENCY_REGEX = /^(?!\(.*[^)]$|[^(].*\)$)\(?\$?(0|[1-9]\d{0,2}(,?\d{3})?)(\.\d\d)?\)?$/;
 
-@Component({
+@Component ({
   selector: 'app-expense-entry',
   templateUrl: './expense-entry.component.html',
-  styleUrls: ['./expense-entry.component.css']
+  styleUrls: [ './expense-entry.component.css' ],
+  providers: [ FireBaseDatabaseService ]
 })
 export class ExpenseEntryComponent implements OnInit {
-  minDate;
-  maxDate;
-  constructor() {
-    //this.maxDate = new Date(2020, 0, 1);
-    this.maxDate = moment().format();
-    console.log('MAX DATE', this.maxDate);
-    this.minDate = moment(moment().subtract(6, 'months'));
-    console.log('MIN DATE', this.minDate);
+  expenseForm: FormGroup;
+  datePickerOptions: {};
+
+  constructor ( private formBuilder: FormBuilder, private expenseSrv: ExpensesService ) {
+    this.datePickerOptions = {
+      minDate: moment (moment ().subtract (6, 'months')),
+      maxDate: moment ().format ()
+    };
+
+    this.expenseForm = this.formBuilder.group ({
+      date: [ '', Validators.required ],
+      category: [ '', Validators.required ],
+      subCategory: [ '', Validators.required ],
+      commerce: [ '', Validators.required ],
+      description: [ '', Validators.required ],
+      value: [ '', Validators.compose ([ Validators.required, Validators.pattern (CURRENCY_REGEX) ]) ],
+      owner: [ '', Validators.required ],
+
+    });
   }
 
-
-
-
-  ngOnInit() {
+  ngOnInit () {
   }
+
+  saveExpense () {
+
+    const values = this.expenseForm.value;
+    this.expenseForm.reset({});
+    const expense = new ExpenseEntry (moment (values.date).format ('DD-MM-YYYY'), values.category,
+        values.subCategory, values.commerce,
+        values.description, values.owner,
+        values.value);
+    expense.setEmpyValues();
+    this.expenseSrv.saveExpense(expense);
+  }
+
 
 }

@@ -31,9 +31,9 @@
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="Concepto">
-          <mat-header-cell *matHeaderCellDef> Concepto </mat-header-cell>
-          <mat-cell *matCellDef="let element">
+        <ng-container matColumnDef="Concepto" >
+          <mat-header-cell *matHeaderCellDef class="my-mat-header-cell"> Concepto </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="my-mat-cell">
             <!--<p>{{element.weight}}</p>-->
             <p>{{element.commerce}}</p>
             <p>{{element.description}}</p>
@@ -43,10 +43,18 @@
         <!-- Color Column -->
         <ng-container matColumnDef="Importe">
           <mat-header-cell *matHeaderCellDef> Importe </mat-header-cell>
-          <mat-cell *matCellDef="let element">
+          <mat-cell *matCellDef="let element" class="left-spacing">
             <!--<p>{{element.symbol}} </p>-->
-            <p>{{element.property}} </p>
+            <p>{{element.owner}} </p>
             <p>{{element.value}} </p>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Select">
+          <mat-header-cell *matHeaderCellDef> Seleccionar </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="left-spacing">
+            <!--<p>{{element.symbol}} </p>-->
+            <mat-checkbox class="example-margin"  [(ngModel)]="element.selected"></mat-checkbox>
           </mat-cell>
         </ng-container>
 
@@ -55,9 +63,8 @@
       </mat-table>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">SAVE and NEW</button>
-    <button mat-raised-button color="accent">SAVE and Exit</button>
-    <button mat-button color="warn">Exit without SAVE</button>
+    <button mat-button color="warn" (click)="test()">Exit</button>
   </mat-card-actions>
 </mat-card>
+
 
