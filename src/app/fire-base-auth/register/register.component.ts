@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
+
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 
 @Component({
   selector: 'app-register',
@@ -6,6 +11,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(EMAIL_REGEX)]);
+
+  passwordFormControl = new FormControl('', [
+    Validators.required]);
+
 
   constructor() { }
 

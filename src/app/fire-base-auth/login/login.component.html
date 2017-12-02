@@ -1,3 +1,24 @@
-<p>
-  login works!
-</p>
+<div class="flex-container">
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title style="text-align: center;">Login to Home Economy</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Em@il" [formControl]="emailFormControl" required>
+        <!--<mat-error>Email is <strong>required</strong></mat-error>-->
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" required [formControl]="passwordFormControl">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="login(emailFormControl.value, passwordFormControl.value)">SIGN IN</button>
+    <button mat-button>CANCEL</button>
+    <button mat-button (click)="logout()">LOG OUT</button>
+    <a mat-button [routerLink]="['/signUp']" *ngIf="allowRegister">Register</a>
+  </mat-card-actions>
+</mat-card>
+</div>
