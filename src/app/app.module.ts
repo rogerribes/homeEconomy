@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import {AuthService} from './fire-base-auth/auth.service';
 import { FireBaseDatabaseService } from './fire-base-auth/fire-base-database.service';
 import { ExpensesService } from './fire-base-auth/expenses.service';
+import { CalculateService } from './calculate/calculate.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ExpensesService } from './fire-base-auth/expenses.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService, FireBaseDatabaseService, ExpensesService ],
+  providers: [AuthService, FireBaseDatabaseService, ExpensesService, CalculateService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

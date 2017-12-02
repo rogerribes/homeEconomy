@@ -71,10 +71,19 @@
       </mat-step>
       <mat-step >
 
-          <ng-template matStepLabel>Confirmar Calculos</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Address"  required>
-          </mat-form-field>
+          <ng-template matStepLabel>Resumen</ng-template>
+
+            <div *ngIf="resume">
+              <p>Movimientos Seleccionados: {{resume.totalExpenses}}</p>
+              <p>Importes Totales: </p>
+                <ul>
+
+                  <li *ngFor="let participant of resume.participants">dsds {{participant}}</li>
+                </ul>
+              <p>Importe final Abono: {{resume.beneficiaryTotal}}</p>
+              <p>Beneficiario:  {{resume.beneficiary}}</p>
+
+            </div>
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
@@ -93,6 +102,5 @@
     <!--</form>-->
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button color="warn" (click)="test()">Exit</button>
   </mat-card-actions>
 </mat-card>
